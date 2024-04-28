@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title> Calculator</title>
+    <!--в данном случае характеристики выбирались вручную -->
+    <style>
+        .calculator {
+            width: 300px; 
+            margin: auto;
+            padding: 10px;
+            border: 2px solid #6c0e95;
+            border-radius: 20px;
+            background-color: rgb(215, 114, 220);
+            color: white;
+        }
+        .calculator input[type ="button"], .calculator input[type="text"] {
+            width: 20%;
+            margin: 5px;
+            padding: 10px;
+            border: 3px solid #bdb76b;
+            border-radius: 30%;
+            background-color: #f0e68c;
+            color: black;
+           
+        }
+        .calculator input[type="text"] {
+            width: 94%;
+            margin-top: 5px;
+            font-size: 24px;
+            text-align: right;
+            color: black;
+            background-color: white;
+            border-radius: 5px;
+        }
+        
+    </style>
+</head>
+
+<body>
+    <!--Добавлены кнопки на экран веб-страницы-->
+   <div class="calculator">
+        <input type="text" id="display" aria-label="Display" readonly>
+        <br>
+        <input type="button" value="7" onclick="addToDisplay('7')">
+        <input type="button" value="8" onclick="addToDisplay ('8')">
+        <input type="button" value="9" onclick="addToDisplay ('9')">
+        <input type="button" value="*" onclick="addToDisplay ('*')">
+    <br>
+        <input type="button" value="4" onclick="addToDisplay ('4')">
+        <input type="button" value="5" onclick="addToDisplay ('5')">
+        <input type="button" value="6" onclick="addToDisplay ('6')">
+        <input type="button" value="-" onclick="addToDisplay ('-')">
+    <br>
+        <input type="button" value="1" onclick="addToDisplay('1')">
+        <input type="button" value="2" onclick="addToDisplay('2')">
+        <input type="button" value="3" onclick="addToDisplay ('3')">
+        <input type="button" value="+" onclick="addToDisplay ('+')">
+    <br>
+        <input type="button" value="0" onclick="addToDisplay ('0')">
+        <input type="button" value="=" onclick="calc()">
+        <input type="button" value="C" onclick="clr()">
+        <input type="button" value="/" onclick="addToDisplay('/')">
+    </div>
+</div> 
+<div id="result"></div>
+<script>
+    function addToDisplay(value) {
+        document.getElementById('display').value += value;
+    }
+
+    function calc() {
+        const display = document.getElementById('display').value;
+        const result = eval(display);
+        document.getElementById('display').value = result;
+        if (result == "1337") {
+            document.getElementById('display').value = "Я люблю Жаби-Жаби"
+        }
+    }
+
+    function clr() {
+        document.getElementById('display').value = "";
+    }
+        
+   </script>
+</body>
+</html>
